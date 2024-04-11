@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
 import warnings
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -96,7 +95,8 @@ columns_for_boxplot = st.multiselect(
 if columns_for_boxplot:
     for column in columns_for_boxplot:
         plt.figure(figsize=(10, 6))
-        sns.boxplot(x="Democracy classification", y=column, data=df)
+        box_data = [filtered_df[filtered_df["Democracy classification"] == classification][column].dropna() for classification in selected_classifications]
+        plt.boxplot(box_data, labels=selected_classifications)
         plt.title(f"Boxplot of {column} by Democracy Classification")
         plt.xlabel("Democracy classification")
         plt.ylabel(column)
