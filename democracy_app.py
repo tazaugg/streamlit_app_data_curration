@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-st.set_option('deprecation.showPyplotGlobalUse', False)
+##st.set_option('deprecation.showPyplotGlobalUse', False)
 # Load the dataset
 url = "https://github.com/tazaugg/data_curation/raw/main/merged.csv"
 df = pd.read_csv(url)
